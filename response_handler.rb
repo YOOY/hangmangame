@@ -21,5 +21,6 @@ module ResponseHandler
   end
 
   def process_submit_response(resp)
+    p resp
   end
 end

@@ -44,6 +44,10 @@ module Word
     end
   end
 
+  # the possible_result looks like ['word1\n', 'word2\n',...]
+  # 1. to make the possible_result become [['a', ['a','a','a'...]], ['c', ['c','c',...]]]
+  # 2. sort the array by the occurrence of each char which is ['a','a',...]
+  # 3. return the most occurrence char which has not been used.
   def get_most_possible_char(possible_result)
     char = nil
     chars = possible_result.map(&:chomp).map{|a| a.split("")}.flatten.group_by(&:itself)

@@ -41,8 +41,10 @@ class HangmanGame
     process_result_response(result_request)
   end
 
+  # the highest score i got is 1363
+  # so submit result only if the score is higher
   def submit_result
-    process_submit_response(submit_request) if @score > 1152
+    process_submit_response(submit_request) if @score > 1363
   end
 
   def need_to_guess?
