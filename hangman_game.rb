@@ -22,7 +22,7 @@ class HangmanGame
   end
 
   def give_me_a_word
-    p '======new word========'
+    p '======New Word========'
     reset
     resp = send_request('action' => 'nextWord', 'sessionId' => @sessionid)
     @guess_result = resp['data']['word']
@@ -34,7 +34,7 @@ class HangmanGame
     resp = send_request('action' => 'guessWord', 'sessionId' => @sessionid, 'guess' => word.upcase)
     @wrong_count = resp['data']['wrongGuessCountOfCurrentWord'].to_i
     @guess_result = resp['data']['word']
-    p "guess : #{word.upcase} guess result : #{@guess_result} wrong count : #{@wrong_count}"
+    p "Guess : #{word.upcase} Guess Result : #{@guess_result} Wrong Count : #{@wrong_count}"
   end
 
   def get_my_result

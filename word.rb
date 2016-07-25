@@ -2,10 +2,12 @@
 # 1. random_guess to pick from the vowel first,
 #    until vowel is empty then pick from consonant
 # 2. if the return result has any non-star char, then goes to smart_guess
-# 3. in the smart_guess, it will prepare the regex according to the current result and the char being used before
-#    and used the regex to search from the dictionary file "words"
-# 4. after get all the possible result from words, select one char that appears most.
-# 5. if there is no possible_result from words, which means we can't find the correct word, then goes to random_guess
+# 3. in the smart_guess, it will prepare the regex according to the current result and the used chars.
+#    Then use the regex to search from the dictionary file "words"
+# 4. after get all the possible words from dictionary file, select the char that appears most.
+#    if the char is used before then get the second most char.
+# 5. if there is no possible_result from words, which means we can't find the correct Word from dictionary,
+#    then goes to random_guess
 
 module Word
   def reset
@@ -35,10 +37,10 @@ module Word
   end
 
   def random_guess
-    if !@vowel.empty?
-      @vowel.shuffle!.pop
-    else
+    if @vowel.empty?
       @consonant.shuffle!.pop
+    else
+      @vowel.shuffle!.pop
     end
   end
 
