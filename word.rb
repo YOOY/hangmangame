@@ -10,7 +10,7 @@
 #    then goes to random_guess
 
 module Word
-  def reset
+  def reset_word_algorithm
     @vowel = %w(a e i o u)
     @consonant = ('a' .. 'z').to_a - @vowel
     @used_char = []

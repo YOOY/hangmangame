@@ -1,7 +1,9 @@
 require './request_processor'
+require './response_handler'
 require './word'
 class HangmanGame
   include RequestProcessor
+  include ResponseHandler
   include Word
 
   def play
@@ -13,43 +15,34 @@ class HangmanGame
       end
     end
     get_my_result
+    submit_result
   end
 
   private
   def start_game
     p '======Game Start======'
-    get_setting(send_request('action' => 'startGame', 'playerId' => ''))
+    process_start_response(start_request)
   end
 
   def give_me_a_word
     p '======New Word========'
-    reset
-    resp = send_request('action' => 'nextWord', 'sessionId' => @sessionid)
-    @guess_result = resp['data']['word']
+    process_get_new_word_response(get_new_word_request)
+    reset_wrong_count
+    reset_word_algorithm
     deduct_total_words
-    reset_for_new_word
   end
 
   def make_a_guess(word)
-    resp = send_request('action' => 'guessWord', 'sessionId' => @sessionid, 'guess' => word.upcase)
-    @wrong_count = resp['data']['wrongGuessCountOfCurrentWord'].to_i
-    @guess_result = resp['data']['word']
+    process_guess_response(guess_request(word))
     p "Guess : #{word.upcase} Guess Result : #{@guess_result} Wrong Count : #{@wrong_count}"
   end
 
   def get_my_result
-    resp = send_request('action' => 'getResult', 'sessionId' => @sessionid)
-    p resp
+    process_result_response(result_request)
   end
 
   def submit_result
-    resp = send_request('action' => 'submitResult', 'sessionId' => @sessionid)
-  end
-
-  def get_setting(resp)
-    @sessionid = resp['sessionId']
-    @total_words = resp['data']['numberOfWordsToGuess'].to_i
-    @wrong_allowed = resp['data']['numberOfGuessAllowedForEachWord'].to_i
+    process_submit_response(submit_request) if @score > 1152
   end
 
   def need_to_guess?
@@ -61,13 +54,12 @@ class HangmanGame
     p "=====Word left : #{@total_words}======"
   end
 
-  def reset_for_new_word
-    @wrong_count = 0
-    @guess_result =  '*'
-  end
-
   def more_words?
     @total_words > 0
+  end
+
+  def reset_wrong_count
+    @wrong_count = 0
   end
 end
 

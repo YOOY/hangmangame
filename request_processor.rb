@@ -12,4 +12,24 @@ module RequestProcessor
     response = https.request(req)
     JSON.parse response.body
   end
+
+  def start_request
+    send_request('action' => 'startGame', 'playerId' => '')
+  end
+
+  def get_new_word_request
+    send_request('action' => 'nextWord', 'sessionId' => @sessionid)
+  end
+
+  def guess_request(word)
+    send_request('action' => 'guessWord', 'sessionId' => @sessionid, 'guess' => word.upcase)
+  end
+
+  def result_request
+    send_request('action' => 'getResult', 'sessionId' => @sessionid)
+  end
+
+  def submit_request
+    send_request('action' => 'submitResult', 'sessionId' => @sessionid)
+  end
 end
