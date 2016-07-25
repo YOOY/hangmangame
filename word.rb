@@ -22,14 +22,13 @@ module Word
            else
              random_guess
            end
-    block_the_word_from_being_used_again char
+    block_the_char_from_being_used_again char
     char
   end
 
   def smart_guess
     regex = @current_result.downcase.gsub(/\*/, "[^#{@used_char.join}]")
-    regex = Regexp.new("^#{regex}$")
-    possible_result = File.open('./words').grep(regex)
+    possible_result = File.open('./words').grep(Regexp.new("^#{regex}$"))
     char = possible_result.empty? ? random_guess : get_most_possible_char(possible_result)
 
     char.nil? ? random_guess : char
@@ -55,7 +54,7 @@ module Word
     char
   end
 
-  def block_the_word_from_being_used_again(char)
+  def block_the_char_from_being_used_again(char)
     @used_char << char
     @vowel = @vowel - @used_char
     @consonant = @consonant - @used_char
