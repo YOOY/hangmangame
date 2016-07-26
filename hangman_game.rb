@@ -1,6 +1,7 @@
-require './request_processor'
-require './response_handler'
-require './word'
+require File.join(File.dirname(__FILE__) + '/request_processor')
+require File.join(File.dirname(__FILE__) + '/response_handler')
+require File.join(File.dirname(__FILE__) + '/word')
+
 class HangmanGame
   include RequestProcessor
   include ResponseHandler
