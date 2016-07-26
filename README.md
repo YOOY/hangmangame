@@ -3,6 +3,11 @@
 ##This is the interview exam of Strikingly.
 ##For more detail please see [Strikingly github page](https://github.com/strikingly/strikingly-interview-test-instructions)
 
+How to start :    
+```shell
+ ruby hangman_game.rb
+```
+
 The code has five files :   
 **1. hangman_game.rb**    
     the main program, it deduct the total words everytime it get new word from server
