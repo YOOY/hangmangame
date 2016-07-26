@@ -1,3 +1,8 @@
+<h1> Hangman game <h1>
+
+<h3>This is the interview exam of Strikingly.<h3>
+<h3>For more detail please see https://github.com/strikingly/strikingly-interview-test-instructions<h3>
+
 The code has five files : 
 1. hangman_game.rb
    # the main program, it deduct the total words everytime it get new word from server
