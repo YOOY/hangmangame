@@ -34,11 +34,12 @@ The code has five files :
    the regex is formed according to the result from guess response and the chars have been used.    
 ```
       for example:     
-         the response is '\*A\*\*A\*', and the used chars are 'A, B, R, Y'    
+         the response is '*A**A*', and the used chars are 'A, B, R, Y'    
          then the regex will looks like : '[^abry]A[^abry][^abry]A[^abry]'    
 ```
+
    after getting the possible words from dictionary, it then split each words into chars and count which char appears most    
-   if the char with most occurrence is used before, then get the second occurrence char    
+   if the char with most occurrence is used before, then get the second most occurrence char    
 
 5. words    
 
