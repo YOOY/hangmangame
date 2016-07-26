@@ -4,18 +4,18 @@
 ##For more detail please see [Strikingly github page](https://github.com/strikingly/strikingly-interview-test-instructions)
 
 The code has five files :   
-**1. hangman_game.rb**
+**1. hangman_game.rb**    
     the main program, it deduct the total words everytime it get new word from server
     it also count the error trial for each word, get new word if the error trial equals to the max error trial
 
-**2. request_processor.rb**
+**2. request_processor.rb**    
     it contain all the logic of sending and receiving https request and response
     due to its functinality, it will not process the response
 
-**3. response_handler.rb**
+**3. response_handler.rb**    
     when getting the https response, it will set the apporiate instance variable according to the response
 
-**4. word.rb**
+**4. word.rb**    
     algorithm of how to guess the word.
     the core idea is to guess the most likely char.
     at the beginning, it will use vowel chars as they exist in almost every words.
@@ -28,6 +28,6 @@ The code has five files :
     after getting the possible words from dictionary, it then split each words into chars and count which char appears most
     if the char with most occurrence is used before, then get the second occurrence char
 
-**5. words**
+**5. words**    
     it's a dictionary file, it combine the /usr/share/dict/words from ubuntu and MAC.
 
