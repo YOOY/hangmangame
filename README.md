@@ -17,12 +17,11 @@ The game has five files :
 
 ### 2. request_processor.rb    
 
-   it contain all the logic of sending and receiving https request and response    
-   due to its functinality, it will not process the response    
+   send the request and get the response
 
 ### 3. response_handler.rb    
 
-   when getting the https response, it will set the apporiate instance variable according to the response    
+   when getting the https response, it will set the instance variable according to the response    
 
 ### 4. word.rb    
 
