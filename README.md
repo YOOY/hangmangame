@@ -12,10 +12,10 @@ The code has five files :
     it contain all the logic of sending and receiving https request and response
     due to its functinality, it will not process the response
 
-**3. response_handler.rb **
+**3. response_handler.rb**
     when getting the https response, it will set the apporiate instance variable according to the response
 
-**4. word.rb **
+**4. word.rb**
     algorithm of how to guess the word.
     the core idea is to guess the most likely char.
     at the beginning, it will use vowel chars as they exist in almost every words.
@@ -23,7 +23,7 @@ The code has five files :
     in order to look for the most likely words, it use regular expression to serch.
     the regex is formed according to the result from guess response and the chars have been used.
      for example: 
-         the response is *A**A*, and the used chars are 'A, B, R, Y'
+         the response is '\*A\*\*A\*', and the used chars are 'A, B, R, Y'
          then the regex will looks like : '[^abry]A[^abry][^abry]A[^abry]'
     after getting the possible words from dictionary, it then split each words into chars and count which char appears most
     if the char with most occurrence is used before, then get the second occurrence char
