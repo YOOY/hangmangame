@@ -3,7 +3,7 @@
 ##This is the interview exam of Strikingly.
 ##For more detail please see [Strikingly github page](https://github.com/strikingly/strikingly-interview-test-instructions)
 
-The code has five files : 
+The code has five files :   
 **1. hangman_game.rb**
    * the main program, it deduct the total words everytime it get new word from server
    * it also count the error trial for each word, get new word if the error trial equals to the max error trial
@@ -13,7 +13,7 @@ The code has five files :
    * due to its functinality, it will not process the response
 
 **3. response_handler.rb **
-   # when getting the https response, it will set the apporiate instance variable according to the response
+   * when getting the https response, it will set the apporiate instance variable according to the response
 
 **4. word.rb **
    * algorithm of how to guess the word.
