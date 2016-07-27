@@ -40,7 +40,7 @@ The game has five files :
    after getting the possible words from dictionary, it then split each words into chars and count which char appears most    
    if the char with most occurrence is used before, then get the second most occurrence char    
 
-### 5. words    
+### 5. dictionary    
 
    it's a dictionary file, it combine the /usr/share/dict/words from ubuntu and MAC.    
 
