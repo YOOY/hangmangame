@@ -29,8 +29,10 @@ module Word
   end
 
   def smart_guess
+    dictionary = File.join(File.dirname(__FILE__) + '/dictionary')
+
     regex = @current_result.downcase.gsub(/\*/, "[^#{@used_char.join}]")
-    possible_result = File.open('./words').grep(Regexp.new("^#{regex}$"))
+    possible_result = File.open(dictionary).grep(Regexp.new("^#{regex}$"))
     char = possible_result.empty? ? random_guess : get_most_possible_char(possible_result)
 
     char.nil? ? random_guess : char
